@@ -1,46 +1,64 @@
 #include "main.h"
-int parse_and_output(const char *format, ...);
+
 /**
- * _printf - Entry point
- * @format: const param for char
+ * _lent - Entry point
+ * @s: pointer param for char
  * Return: int
-*/
-int _printf(const char *format, ...)
+ */
+int _lent(char *s)
 {
 	int count = 0;
 
-	if (format == NULL)
-		return (-1);
-	count = parse_and_output(format);
+	while (*s)
+	{
+		_putchar(*s);
+		s++;
+		count++;
+	}
 	return (count);
 }
 /**
- * parse_and_output - Entry point
- * @format: const param for char
+ * _printf - Entry point
+ * @format: const pointer for char
  * Return: int
-*/
-int parse_and_output(const char *format, ...)
+ */
+int _printf(const char *format, ...)
 {
-	int count = 0;
+	int c, count = 0;
 	va_list args;
+	char *s;
 
 	va_start(args, format);
+
 	while (*format)
 	{
-		if (*format == '%')
+		if (*format != '%')
+			_putchar(*format), count++;
+		else
 		{
 			format++;
-			count += checking(format, args);
-			while (*format && (*format == 'c' || *format == 's' || *format == '%'))
+			if (*format == '\0')
+				break;
+			if (*format == '%')
 			{
-				format++;
+				_putchar(*format);
+				count++;
+			} else if (*format == 'c')
+			{
+				c = va_arg(args, int);
+				_putchar(c);
+				count++;
+			} else if (*format == 's')
+			{
+				s = va_arg(args, char *);
+				count = _lent(s);
+			} else
+			{
+				_putchar(*format - 1);
+				count += 2;
 			}
-		} else
-		{
-			_putchar(*format);
-			count++;
-			format++;
 		}
+		format++;
 	}
 	va_end(args);
 	return (count);
