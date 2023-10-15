@@ -6,15 +6,14 @@
  */
 int main(void)
 {
-	int count = 0;
-	int count2 = 0;
-
-	count = printf("%c\n", 'H');
-	printf("%d\n", count);
-	count2 = _printf("%s", "hello");
-	printf("%d\n", count2);
-	printf("String:[%s]\n", "I am a string !");
-	_printf("Percent:[%%]\n");
-	printf("Percent:[%%]\n");
+	int len, len2;
+	_printf("Character:[%c]\n", 'H');
+    printf("Character:[%c]\n", 'H');
+    _printf("String:[%s]\n", "I am a string !");
+    printf("String:[%s]\n", "I am a string !");
+	len = _printf("Percent:[%%]\n");
+    len2 = printf("Percent:[%%]\n");
+    _printf("Len:[%d]\n", len);
+    printf("Len:[%d]\n", len2);
 	return (0);
 }
