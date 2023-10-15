@@ -1,21 +1,16 @@
 #include "main.h"
 
-int _printf(const char *format, ...)
+/**
+ * format_and_count - Entry point
+ * @format: const pointer param for char
+ * @args: for args list
+ * Return: int
+*/
+int format_and_count(const char *format, va_list args)
 {
-	int count;
-
-	char c;
+	int count = 0;
+	int c;
 	char *str;
-	va_list args;
-
-	if (!format)
-	{
-		return (-1);
-	}
-
-	count = 0;
-
-	va_start(args, format);
 
 	while (*format)
 	{
@@ -35,7 +30,7 @@ int _printf(const char *format, ...)
 				count += handle_string(str);
 				format++;
 			}
-			else if(*format == '%')
+			else if (*format == '%')
 			{
 				_putchar('%');
 				count++;
@@ -48,10 +43,25 @@ int _printf(const char *format, ...)
 			count++;
 			format++;
 		}
-		
 	}
+	return (count);
+}
+int _printf(const char *format, ...)
+{
+	int count;
+	va_list args;
+
+	va_start(args, format);
+
+
+	if (!format)
+	{
+		return (-1);
+	}
+
+	count = format_and_count(format, args);
 	va_end(args);
 	return (count);
-	
-	
 }
+
+

@@ -22,7 +22,7 @@ int handle_string(char *str)
 			_putchar(*null);
 			null++;
 		}
-		return 6;
+		return (6);
 	}
 
 	while (*str)
@@ -32,6 +32,4 @@ int handle_string(char *str)
 		str++;
 	}
 	return (count);
-	
-	
 }
