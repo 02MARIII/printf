@@ -7,9 +7,9 @@
 */
 int handle_string(char *str)
 {
-	int i;
 	char *null;
 	int count;
+	int i;
 
 	if (str == NULL || str)
 	{
@@ -22,7 +22,6 @@ int handle_string(char *str)
 		}
 		return (6);
 	}
-
 	while (*str)
 	{
 		_putchar(*str);

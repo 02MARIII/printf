@@ -6,8 +6,8 @@
  */
 int main(void)
 {
-	int len, len2;
-
 	_printf("%s", "");
+	_printf("----------------");
+	_printf("%s", (char *)0);
 	return (0);
 }

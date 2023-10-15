@@ -1,6 +1,13 @@
-#include <stdio.h>
+#include "main.h"
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
 int main(void)
 {
-    printf("%s", (char *)NULL);
-    return 0;
+    _printf("%s", "");
+    _printf("----------------");
+    _printf("%s", (char *)0);
+    return (0);
 }
