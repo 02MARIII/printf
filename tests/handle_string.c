@@ -11,7 +11,7 @@ int handle_string(char *str)
 	int count;
 	int i;
 
-	if (str == NULL || str)
+	if (str == NULL)
 	{
 		null = "(null)";
 

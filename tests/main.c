@@ -6,8 +6,9 @@
  */
 int main(void)
 {
-    _printf("%s", "");
-    _printf("----------------");
-    _printf("%s", (char *)0);
+    int len;
+    len = _printf("%s", "hello");
+
+    printf("\nfirst count: %d\n", len);
     return (0);
 }
