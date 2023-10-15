@@ -13,7 +13,7 @@ int handle_string(char *str)
 
 	int count;
 
-	if (str == NULL)
+	if (str == NULL || str == 0)
 	{
 		null = "(null)";
 
