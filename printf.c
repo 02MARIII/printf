@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format != '%')
-			_putchar(*format), count++;
+			_putchar(*format), count++, format++;
 		else
 		{
 			format++;
@@ -51,7 +51,7 @@ int _printf(const char *format, ...)
 			} else if (*format == 's')
 			{
 				s = va_arg(args, char *);
-				count = _lent(s);
+				count += _lent(s);
 			} else
 			{
 				_putchar(*format - 1);
