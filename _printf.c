@@ -46,13 +46,17 @@ int format_and_count(const char *format, va_list args)
 	}
 	return (count);
 }
+/**
+ * _printf - Entry point
+ * @format: const pointer param for char
+ * Return: int
+*/
 int _printf(const char *format, ...)
 {
 	int count;
 	va_list args;
 
 	va_start(args, format);
-
 
 	if (!format)
 	{
