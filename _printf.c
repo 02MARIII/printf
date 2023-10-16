@@ -34,6 +34,11 @@ int format_and_count(const char *format, va_list args)
 					count++;
 					format++;
 					break;
+				default:
+					_putchar('%');
+					_putchar(*format);
+					count += 2;
+            		break;
 			}
 			if (*format == '\0')
 				return (-1);
