@@ -46,7 +46,6 @@ int format_and_count(const char *format, va_list args)
 			_putchar(*format);
 			count++;
 		}
-		format++;
 	}
 	return (count);
 }
