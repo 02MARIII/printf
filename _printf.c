@@ -54,7 +54,7 @@ int _printf(const char *format, ...)
 int checker_formation(char check, va_list args)
 {
 	int count = 0;
-
+	int num;
 	switch (check)
 	{
 		case 's':
@@ -66,6 +66,14 @@ int checker_formation(char check, va_list args)
 		case '%':
 			count = _putchar('%');
 			break;
+		case 'd':
+			num = va_arg(args, int);
+            count += print_decimal(num);
+            break;
+		case 'i':
+			num = va_arg(args, int);
+            count += print_int(num);
+            break;
 		default:
 			write(1, "%", 1);
 			_putchar(check);
