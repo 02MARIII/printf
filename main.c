@@ -20,5 +20,6 @@ int main(void)
 	len =  _printf("Character:[%c]\n", 'H');
 	len2 = printf("Character:[%c]\n", 'H');
 	printf("C: %d S: %d\n", len, len2);
+	_printf("%K\n");
 	return (0);
 }
