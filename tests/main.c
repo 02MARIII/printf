@@ -6,9 +6,13 @@
  */
 int main(void)
 {
-    int len;
-    len = _printf("%s", "hello");
+    int len, len2;
+	len = _printf("[%c]\n", 'H');
+    len2 = _printf("[%s]\n", "");
+	printf("C: %d S: %d\n", len, len2);
+    printf("String:[%s]\n", "I am a string !");
+	_printf("Percent:[%%]\n");
+    printf("Percent:[%%]\n");
 
-    printf("\nfirst count: %d\n", len);
     return (0);
 }

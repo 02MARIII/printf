@@ -9,7 +9,7 @@
 int format_and_count(const char *format, va_list args)
 {
 	int count = 0;
-	int c;
+	char c;
 	char *str;
 
 	while (*format)
@@ -20,9 +20,8 @@ int format_and_count(const char *format, va_list args)
 			if (*format == 'c')
 			{
 				c = va_arg(args, int);
-				_putchar(c);
+				count += handle_char(c);
 				format++;
-				count++;
 			}
 			else if (*format == 's')
 			{
@@ -36,6 +35,8 @@ int format_and_count(const char *format, va_list args)
 				count++;
 				format++;
 			}
+			else
+				count += _putchar(*format);
 		}
 		else
 		{
@@ -67,5 +68,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
-

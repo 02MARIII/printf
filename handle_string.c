@@ -9,7 +9,7 @@ int handle_string(char *str)
 {
 	int i;
 	char *null;
-	int count;
+	int count = 0;
 
 	if (str == NULL)
 	{
@@ -22,12 +22,12 @@ int handle_string(char *str)
 		}
 		return (6);
 	}
-
 	while (*str)
 	{
 		_putchar(*str);
 		count++;
 		str++;
 	}
+	
 	return (count);
 }

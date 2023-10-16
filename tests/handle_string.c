@@ -1,4 +1,3 @@
-
 #include "main.h"
 /**
  * handle_string - print a string

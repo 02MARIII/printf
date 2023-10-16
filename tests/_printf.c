@@ -9,32 +9,34 @@
 int format_and_count(const char *format, va_list args)
 {
 	int count = 0;
-	int c;
-	char *str;
+	char c;
 
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			if (*format == 'c')
+			switch (*format)
 			{
-				c = va_arg(args, int);
-				_putchar(c);
-				format++;
-				count++;
-			}
-			else if (*format == 's')
-			{
-				str = va_arg(args, char *);
-				count += handle_string(str);
-				format++;
-			}
-			else if (*format == '%')
-			{
-				_putchar('%');
-				count++;
-				format++;
+				case '%':
+					write(1,"%",1);
+					count++;
+					format++;
+					break;
+				case 's':
+					count += handle_string(args);
+					format++;
+					break;
+				case 'c':
+					c = (va_arg(args, int));
+					_putchar(c);
+					format++;
+					break;
+				default:
+					write(1, "%", 1);
+					write(1, format, 1);
+					count += 2;
+					break;
 			}
 		}
 		else
@@ -67,5 +69,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
-
-
