@@ -63,8 +63,13 @@ int checker_formation(char check, va_list args)
 		case 'c':
 			count = _putchar(va_arg(args, int));
 			break;
+		case '%':
+			count = _putchar('%');
+			break;
 		default:
-			count += _putchar(check);
+			write(1, "%", 1);
+			_putchar(check);
+			count += 2;
 			break;
 	}
 
