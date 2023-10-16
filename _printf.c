@@ -9,8 +9,6 @@
 int format_and_count(const char *format, va_list args)
 {
 	int count = 0;
-	char c;
-	char *str;
 
 	while (*format)
 	{
@@ -63,7 +61,7 @@ int checker_formation(char check, va_list args)
 			count = handle_string(va_arg(args, char *));
 			break;
 		case 'c':
-			count = (va_arg(args, int));
+			count = _putchar(va_arg(args, int));
 			break;
 		default:
 			count += _putchar(check);
