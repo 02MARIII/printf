@@ -43,8 +43,7 @@ int format_and_count(const char *format, va_list args)
 		}
 		else
 		{
-			_putchar(*format);
-			count++;
+			count += _putchar(*format);
 		}
 	}
 	return (count);
