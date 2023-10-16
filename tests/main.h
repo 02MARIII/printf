@@ -5,7 +5,9 @@
 #include <unistd.h>
 #include <limits.h>
 int _putchar(char c);
+int handle_char(char c);
 int _printf(const char *format, ...);
-int handle_string(va_list args);
+const char *check_in(const char *format);
+int handle_string(char *str);
 int format_and_count(const char *format, va_list args);
 #endif

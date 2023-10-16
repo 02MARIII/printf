@@ -1,3 +1,4 @@
+
 #include "main.h"
 /**
  * handle_string - print a string
@@ -6,9 +7,9 @@
 */
 int handle_string(char *str)
 {
-	char *null;
-	int count;
 	int i;
+	char *null;
+	int count = 0;
 
 	if (str == NULL)
 	{
@@ -27,5 +28,6 @@ int handle_string(char *str)
 		count++;
 		str++;
 	}
+
 	return (count);
 }

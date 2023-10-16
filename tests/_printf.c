@@ -10,34 +10,35 @@ int format_and_count(const char *format, va_list args)
 {
 	int count = 0;
 	char c;
+	char *str;
 
 	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			switch (*format)
+			if (*format == '\0')
+				return (-1);
+			if (*format == 'c')
 			{
-				case '%':
-					write(1,"%",1);
-					count++;
-					format++;
-					break;
-				case 's':
-					count += handle_string(args);
-					format++;
-					break;
-				case 'c':
-					c = (va_arg(args, int));
-					_putchar(c);
-					format++;
-					break;
-				default:
-					write(1, "%", 1);
-					write(1, format, 1);
-					count += 2;
-					break;
+				c = va_arg(args, int);
+				count += handle_char(c);
+				format++;
 			}
+			else if (*format == 's')
+			{
+				str = va_arg(args, char *);
+				count += handle_string(str);
+				format++;
+			}
+			else if (*format == '%')
+			{
+				_putchar('%');
+				count++;
+				format++;
+			}
+			else
+				count += _putchar(*format++);
 		}
 		else
 		{
@@ -64,7 +65,8 @@ int _printf(const char *format, ...)
 	{
 		return (-1);
 	}
-
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
 	count = format_and_count(format, args);
 	va_end(args);
 	return (count);
