@@ -36,14 +36,13 @@ int format_and_count(const char *format, va_list args)
 				format++;
 			}
 			else
-			{
-				_putchar(*format);
-				count++;
-			}
+				count += _putchar(*format++);
 		}
 		else
 		{
-			count += _putchar(*format);
+			_putchar(*format);
+			count++;
+			format++;
 		}
 	}
 	return (count);
