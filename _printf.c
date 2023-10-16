@@ -19,26 +19,30 @@ int format_and_count(const char *format, va_list args)
 			format++;
 			if (*format == '\0')
 				return (-1);
-			if (*format == 'c')
+			switch (*format)
 			{
-				c = va_arg(args, int);
-				count += handle_char(c);
-				format++;
+				case '%':
+					write(1, "%", 1);
+					count++;
+					format++;
+					break;
+				case 's':
+					str = va_arg(args, char *);
+					count += handle_string(str);
+					format++;
+					break;
+				case 'c':
+					c = (va_arg(args, int));
+					write(1, &c, 1);
+					count++;
+					format++;
+					break;
+				default:
+					write(1, "%", 1);
+					write(1, format, 1);
+					count += 2;
+					break;
 			}
-			else if (*format == 's')
-			{
-				str = va_arg(args, char *);
-				count += handle_string(str);
-				format++;
-			}
-			else if (*format == '%')
-			{
-				_putchar('%');
-				count++;
-				format++;
-			}
-			else
-				count += _putchar(*format++);
 		}
 		else
 		{
