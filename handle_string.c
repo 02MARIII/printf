@@ -28,6 +28,6 @@ int handle_string(char *str)
 		count++;
 		str++;
 	}
-	
+
 	return (count);
 }
