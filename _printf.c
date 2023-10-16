@@ -19,37 +19,13 @@ int format_and_count(const char *format, va_list args)
 			format++;
 			if (*format == '\0')
 				return (-1);
-			switch (*format)
-			{
-				case '%':
-					write(1, "%", 1);
-					count++;
-					format++;
-					break;
-				case 's':
-					str = va_arg(args, char *);
-					count += handle_string(str);
-					format++;
-					break;
-				case 'c':
-					c = (va_arg(args, int));
-					write(1, &c, 1);
-					count++;
-					format++;
-					break;
-				default:
-					write(1, "%", 1);
-					write(1, format, 1);
-					count += 2;
-					break;
-			}
+			count += checker_formation(*format, args);
 		}
 		else
 		{
-			_putchar(*format);
-			count++;
-			format++;
+			count += _putchar(*format);
 		}
+		format++;
 	}
 	return (count);
 }
@@ -65,13 +41,34 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	if (!format || (format[0] == '%' && !format[1]))
-	{
-		return (-1);
-	}
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
+	if (!format)
 		return (-1);
 	count = format_and_count(format, args);
 	va_end(args);
+	return (count);
+}
+/**
+ * checker_formation - Entry point
+ * @check: param for char
+ * @args: args from va_list
+ * Return: int
+*/
+int checker_formation(char check, va_list args)
+{
+	int count = 0;
+
+	switch (check)
+	{
+		case 's':
+			count = handle_string(va_arg(args, char *));
+			break;
+		case 'c':
+			count = (va_arg(args, int));
+			break;
+		default:
+			count += _putchar(check);
+			break;
+	}
+
 	return (count);
 }

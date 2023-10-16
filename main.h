@@ -10,4 +10,5 @@ int _printf(const char *format, ...);
 const char *check_in(const char *format);
 int handle_string(char *str);
 int format_and_count(const char *format, va_list args);
+int checker_formation(char check, va_list args);
 #endif
