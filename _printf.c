@@ -76,9 +76,44 @@ int checker_formation(char check, va_list args)
 			num = va_arg(args, int);
 			count += print_int(num);
 			break;
+		default:
+			count = checker_formation_extend(check, args);
+			break;
+	}
+	return (count);
+}
+/**
+ * checker_formation_extend - Entry point
+ * @check: param for char
+ * @args: param for va_list
+ * Return: int
+*/
+int checker_formation_extend(char check, va_list args)
+{
+	int count = 0;
+	unsigned int x;
+
+	switch (check)
+	{
 		case 'b':
 			x = va_arg(args, unsigned int);
 			count += print_to_decimal(x);
+			break;
+		case 'u':
+			x = va_arg(args, unsigned int);
+			count += print_uns(x);
+			break;
+		case 'o':
+			x = va_arg(args, unsigned int);
+			count += print_oct(x);
+			break;
+		case 'x':
+			x = va_arg(args, unsigned int);
+			count += print_hexLower(x);
+			break;
+		case 'X':
+			x = va_arg(args, unsigned int);
+			count += print_hexUpper(x);
 			break;
 		default:
 			write(1, "%", 1);
@@ -86,6 +121,4 @@ int checker_formation(char check, va_list args)
 			count += 2;
 			break;
 	}
-
-	return (count);
 }
