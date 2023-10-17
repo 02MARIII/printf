@@ -7,18 +7,25 @@
 int print_hexLower(unsigned int x)
 {
 	int count = 0;
-	char c;
+    char hexDigits[] = "0123456789abcdef";
+    char hex[20];
+    int i = 0;
 
-	if (x >= 16)
+    if (x == 0) {
+        _putchar('0');
+        return 1;
+    }
+    while (x > 0)
 	{
-		print_hexLower(x / 16);
-		count++;
-	}
-	if (x % 16 < 10)
-		c = '0' + (x % 16);
-	else
-		c = 'a' + (x % 16) - 10;
-	_putchar(c);
-	count++;
-	return (count);
+        hex[i] = hexDigits[x % 16];
+        x /= 16;
+        i++;
+        count++;
+    }
+
+    for (i = i - 1; i >= 0; i--) {
+        _putchar(hex[i]);
+    }
+
+    return count;
 }

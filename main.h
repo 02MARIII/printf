@@ -15,8 +15,7 @@ int checker_formation_extend(char check, va_list args);
 int print_decimal(int n);
 int print_int(int n);
 int print_to_decimal(unsigned int x);
-int print_uns(unsigned int i);
-int print_oct(unsigned int i);
+int print_uns_or_oct(unsigned int i, int num);
 int print_hexLower(unsigned int x);
 int print_hexUpper(unsigned int x);
 #endif
