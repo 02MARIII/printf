@@ -115,7 +115,7 @@ int checker_formation_extend(char check, va_list args)
 			count += print_hexUpper(x);
 			break;
 		case 'S':
-			count = custom_string(va_arg(args, char *));
+			count += custom_string(va_arg(args, char *));
 			break;
 		default:
 			write(1, "%", 1);
