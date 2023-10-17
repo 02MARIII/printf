@@ -18,4 +18,5 @@ int print_to_decimal(unsigned int x);
 int print_uns_or_oct(unsigned int i, int num);
 int print_hexLower(unsigned int x);
 int print_hexUpper(unsigned int x);
+int custom_string(char *s);
 #endif

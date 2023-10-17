@@ -99,7 +99,7 @@ int checker_formation_extend(char check, va_list args)
 			count += print_to_decimal(x);
 			break;
 		case 'u':
-			x = va_arg(args,unsigned int);
+			x = va_arg(args, unsigned int);
 			count += print_uns_or_oct(x, 10);
 			break;
 		case 'o':
@@ -113,6 +113,9 @@ int checker_formation_extend(char check, va_list args)
 		case 'X':
 			x = va_arg(args, unsigned int);
 			count += print_hexUpper(x);
+			break;
+		case 'S':
+			count = custom_string(va_arg(args, char *));
 			break;
 		default:
 			write(1, "%", 1);
