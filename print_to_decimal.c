@@ -26,7 +26,7 @@ int print_to_decimal(unsigned int x)
 	{
 		_putchar(dem[s] + '0');
 		count++;
-		s++;
+		s--;
 	}
 	return (count);
 }
