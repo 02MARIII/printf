@@ -9,7 +9,7 @@ int custom_string(char *s)
 	char hex[3];
 	int count = 0;
 
-	if (s != NULL)
+	if (!s)
 		s = "(null)";
 	while (*s)
 	{
@@ -22,7 +22,7 @@ int custom_string(char *s)
 			hex[2] = 0;
 			sprintf(hex, "%02X", (unsigned char)*s);
 			_putchar(*hex);
-			count += 2;
+			count += 1;
 		} else
 		{
 			_putchar(*s);

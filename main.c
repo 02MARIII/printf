@@ -19,6 +19,7 @@ int main(void)
 	len = _printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	len2 = printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	printf("%d %d\n", len, len2);
-	_printf("%S\n", "Best\nSchool");
+	len = _printf("%S\n", "Best\nSchool");
+	printf("%d\n", len);
 	return (0);
 }
