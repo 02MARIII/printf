@@ -54,7 +54,6 @@ int _printf(const char *format, ...)
 int checker_formation(char check, va_list args)
 {
 	int count = 0;
-	unsigned int x;
 	int num;
 
 	switch (check)
