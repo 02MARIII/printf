@@ -121,4 +121,5 @@ int checker_formation_extend(char check, va_list args)
 			count += 2;
 			break;
 	}
+	return (count);
 }
