@@ -13,4 +13,5 @@ int format_and_count(const char *format, va_list args);
 int checker_formation(char check, va_list args);
 int print_decimal(int n);
 int print_int(int n);
+int print_to_decimal(unsigned int x);
 #endif
