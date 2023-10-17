@@ -22,7 +22,7 @@ int custom_string(char *s)
 			hex[2] = 0;
 			sprintf(hex, "%02X", (unsigned char)*s);
 			_putchar(*hex);
-			count += 1;
+			count += 2;
 		} else
 		{
 			_putchar(*s);
